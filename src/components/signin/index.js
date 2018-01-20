@@ -10,7 +10,7 @@ class Signin extends Component {
   render() {
 
     return (
-      <div className="signin">
+      <div className="signin text-center">
         {this.props.signedin ? (
           <IsSignedIn />
         ) : (

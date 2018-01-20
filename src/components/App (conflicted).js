@@ -29,8 +29,8 @@ class App extends Component {
   render() {
 
     return (
-      <div className="application">
-        <header className="main-header fixed-top container zindex-sticky bg-white">
+      <div className="application p-1 container mt-2">
+        <header className="main-header fixed-top">
           <nav className="nav nav-pills nav-fill d-flex align-items-baseline">
             <Link to="/" className="nav-item nav-link font-weight-bold text-large align-middle">The Super Blog</Link>
             <Link to="/signin" className="nav-item nav-link text-secondary">
@@ -47,11 +47,11 @@ class App extends Component {
  
 
 
-        <main className="main-content mt-5 pt-5 container text-center">
-          <Route exact path="/" component={Home} />
+        <main className="main-content mt-3">
+          <Route exact path="/" component={Home} className="mt-5"/>
           <Route exact path="/signin" component={Signin} />
         </main>
-        <footer className="main-footer p-2 text-small text-center fixed-bottom bg-white zindex-sticky">
+        <footer className="main-footer m-2 text-small text-center fixed-bottom">
           The Super Blog YHJUST16
         </footer>
         
