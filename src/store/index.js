@@ -6,7 +6,9 @@ import rootReducer from '../modules'
 
 export const history = createHistory()
 
-const initialState = {}
+const initialState = {
+  posted: {postkey: 'none'}
+}
 const enhancers = []
 const middleware = [
   thunk,

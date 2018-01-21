@@ -1,17 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators }from 'redux';
+import { bindActionCreators } from 'redux';
+import {createPost} from '../actions';
 import PropTypes from 'prop-types';
+
+
 
 class NewPost extends Component {
   constructor(props){
     super(props);
     this.state = {
       formFields: {
-        subject: 'test',
-        body: 'test2',
-      }
+        subject: '',
+        body: '',
+      },
+      isSubmitting: false
     }
+    
+  }
+
+  componentWillReceiveProps(next) {
+    if (this.props.submitted_new_post !== next.submitted_new_post) { 
+      //new key has been retrived and updated from successfull post submit. component should be reset. we could also use redux-form for this
+      this.setState({ isSubmitting: false, formFields:{...this.state.formFields, subject : '', body: ''}});
+    }
+  }
+
+
+   onSubmit = e => {
+    console.log(this.props)
+    e.preventDefault();
+    this.setState({ isSubmitting: true});
+    this.props.createPost(this.state.formFields.subject, this.state.formFields.body);
+    //this.setState({ isSubmitting: false, formFields:{...this.state.formFields, subject : '', body: ''}});
   }
 
   onSubjectChange = e => {
@@ -25,7 +46,7 @@ class NewPost extends Component {
   render() {
 
     return (
-      <form>
+      <form onSubmit={this.onSubmit}>
         <h5>Create new post</h5>
         <input className="p-1 text-left w-75 form-control mx-auto" placeholder="Subject..."
           type="text"
@@ -36,7 +57,7 @@ class NewPost extends Component {
           value={this.state.formFields.body}>
          
         </textarea>
-        <button className="btn btn-dark btn-lg my-4 bg-primary w-50 text-uppercase">Post</button>
+        <input type="submit" value="Post" className="btn btn-dark btn-lg my-4 bg-primary w-50 text-uppercase" disabled={this.state.isSubmitting} />
       </form>
     );
   }
@@ -44,14 +65,18 @@ class NewPost extends Component {
 
 NewPost.propTypes = {
   createPost: PropTypes.func,
+  submitted_new_post: PropTypes.string,
 };
 
+const mapStateToProps = state => ({
+  submitted_new_post: state.posted.postkey
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  //createPost
+  createPost
 }, dispatch);
       
 export default connect(
-  null, 
+  mapStateToProps, 
   mapDispatchToProps)(NewPost);
       

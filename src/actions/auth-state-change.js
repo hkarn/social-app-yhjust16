@@ -5,6 +5,5 @@ export function authStateChange(loginstate, user) {
       signin: loginstate,
       user: user
     }
-  }
-  ;
+  };
 }
