@@ -11,6 +11,8 @@ class IsSignedIn extends Component {
     .then(function() {
       //code on logout
       //Note! auth state listener in App.js catches logout event and updates the app
+      //We still force a reload to not leave old components
+      window.location.reload();
     })
     .catch(function(error) {
       //catch error

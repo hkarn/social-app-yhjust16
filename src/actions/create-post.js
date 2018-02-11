@@ -1,20 +1,22 @@
 import firebase from '../config/firebase';
 
 export function createPost(subject, body) {
+
   return function(dispatch){
-    
+
     const user = firebase.auth().currentUser;
-    console.log(user);
+    const uid = firebase.auth().currentUser.uid;
     const postData = {
       subject: subject,
       body: body,
       timestamp: firebase.database.ServerValue.TIMESTAMP,
-      uid: user.uid,
+      uid: uid,
       author: user.displayName,
       likeCount: 0,
+      comments: {},
     };
 
-    const newPostKey = firebase.database().ref().child('posts').push().key
+    const newPostKey = firebase.database().ref().child('posts').push().key;
 
     let updates = {};
     updates['/posts/' + newPostKey] = postData;

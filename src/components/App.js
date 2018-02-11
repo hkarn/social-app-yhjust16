@@ -14,13 +14,29 @@ import './App.css';
 
 class App extends Component {
 
-
+  
   componentDidMount() {
+
+
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
-        this.props.authStateChange(true, firebase.auth().currentUser);
+
+        firebase.database().ref('admin').once('value', (snapshot) => {
+          if (snapshot.hasChild(firebase.auth().currentUser.uid)) {
+            this.props.authStateChange(true, firebase.auth().currentUser, true);
+          } else {
+            this.props.authStateChange(true, firebase.auth().currentUser, false);
+          }
+          
+        })
+          .catch(function() {
+            this.props.authStateChange(true, firebase.auth().currentUser, false);
+          }.bind(this));
+        
+        
+        
       } else {
-        this.props.authStateChange(false, null);
+        this.props.authStateChange(false, null, false);
       }
     }.bind(this));
   }
@@ -47,7 +63,7 @@ class App extends Component {
  
 
 
-        <main className="main-content mt-5 pt-5 container text-center">
+        <main className="main-content mt-5 pt-5 pb-5 mb-5 container text-center">
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
         </main>
@@ -71,7 +87,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 const mapStateToProps = state => ({
-  signedin: state.user.signin
+  signedin: state.user.signin,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

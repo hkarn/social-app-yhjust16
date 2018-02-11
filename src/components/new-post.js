@@ -28,7 +28,6 @@ class NewPost extends Component {
 
 
    onSubmit = e => {
-    console.log(this.props)
     e.preventDefault();
     this.setState({ isSubmitting: true});
     this.props.createPost(this.state.formFields.subject, this.state.formFields.body);
@@ -66,6 +65,7 @@ class NewPost extends Component {
 NewPost.propTypes = {
   createPost: PropTypes.func,
   submitted_new_post: PropTypes.string,
+  editPost: PropTypes.func,
 };
 
 const mapStateToProps = state => ({

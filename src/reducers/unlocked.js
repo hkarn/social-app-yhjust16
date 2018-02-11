@@ -1,8 +1,8 @@
-export default function posted(state = {}, action) {
+export default function unlocked(state = {}, action) {
 
   switch(action.type){
   
-  case 'READ_POSTS':
+  case 'UNLOCKED_POST':
 
     return action.payload;
  
