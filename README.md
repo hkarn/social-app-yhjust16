@@ -1,7 +1,11 @@
 YHJUST16 Avancerad Webbapplikationsutveckling 2
+
 Slutuppgift
+
 Håkan Kindström Arnoldson
+
 Lernia JavaScriptutevcklare YH
+
 
       Firebase rules:
       {
