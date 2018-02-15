@@ -3,3 +3,7 @@ export {createPost} from './create-post';
 export {readPosts} from './read-posts';
 export {editPost} from './edit-post';
 export {unlockPost} from './unlock-post';
+export {sendLike} from './send-like';
+export {readComments} from './read-comments';
+export {createComment} from './create-comment';
+export {unsubComments} from './unsub-comments';

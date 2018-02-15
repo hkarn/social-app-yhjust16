@@ -1,30 +1,29 @@
 import firebase from '../config/firebase';
 
-export function createPost(subject, body) {
+export function createComment(body, postId) {
 
   return function(dispatch){
 
     const user = firebase.auth().currentUser;
     const uid = firebase.auth().currentUser.uid;
     const postData = {
-      subject: subject,
       body: body,
       timestamp: firebase.database.ServerValue.TIMESTAMP,
       uid: uid,
       author: user.displayName,
-      likeCount: 0,
+      postId: postId,
     };
 
-    const newPostKey = firebase.database().ref().child('posts').push().key;
+    const newPostKey = firebase.database().ref('comments').child(postId).push().key;
 
     let updates = {};
-    updates['/posts/' + newPostKey] = postData;
-    updates['/user-posts/' + user.uid + '/' + newPostKey] = postData;
+    updates['/comments/' + postId + '/' + newPostKey] = postData;
+    updates['/user-comments/' + user.uid + '/' + postId + '/' + newPostKey] = postData;
   
     firebase.database().ref().update(updates)
       .then(() => {
         dispatch({
-          type: 'POSTED_SUCCESS',
+          type: 'POSTED_COMMENT_SUCCESS',
           payload: {
             postkey: newPostKey,
           }

@@ -1,8 +1,8 @@
-export default function postStream(state = {}, action) {
+export default function liked(state = {}, action) {
 
   switch(action.type){
   
-  case 'READ_POSTS':
+  case 'LIKE_ADDED':
 
     return action.payload;
  
