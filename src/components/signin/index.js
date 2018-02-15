@@ -14,7 +14,7 @@ class Signin extends Component {
         {this.props.signedin ? (
           <IsSignedIn />
         ) : (
-          <Signinform />
+          <Signinform homeFolder={this.props.homeFolder}/>
         )}
       </div>
     );
