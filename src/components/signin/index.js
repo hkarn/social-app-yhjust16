@@ -8,7 +8,7 @@ class Signin extends Component {
   
  
   render() {
-
+    console.log(this.props.homeFolder);
     return (
       <div className="signin text-center">
         {this.props.signedin ? (

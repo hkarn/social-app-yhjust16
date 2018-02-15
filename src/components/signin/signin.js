@@ -6,6 +6,7 @@ import firebaseui from 'firebaseui';
 class Signinform extends Component {
   
   componentDidMount() {
+    console.log(this.props.homeFolder);
     const uiConfig = {
       signInSuccessUrl: '/' + this.props.homeFolder + '/',
       signInOptions: [

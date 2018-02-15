@@ -70,8 +70,8 @@ class App extends Component {
 
 
         <main className="main-content mt-5 pt-5 pb-5 mb-5 container text-center">
-          <Route exact path={'/' + this.state.homeFolder + '/'} component={Home} homeFolder={this.state.homeFolder}/>
-          <Route exact path={'/' + this.state.homeFolder + '/signin/'} component={Signin} homeFolder={this.state.homeFolder}/>
+          <Route exact path={'/' + this.state.homeFolder + '/'} render={()=><Home homeFolder={this.state.homeFolder}/>} />
+          <Route exact path={'/' + this.state.homeFolder + '/signin/'} render={()=><Signin homeFolder={this.state.homeFolder}/>} />
         </main>
         <footer className="main-footer p-2 text-small text-center fixed-bottom bg-white zindex-sticky">
           The Super Blog YHJUST16
