@@ -48,8 +48,8 @@ class App extends Component {
       <div className="application">
         <header className="main-header fixed-top container zindex-sticky bg-white">
           <nav className="nav nav-pills nav-fill d-flex align-items-baseline">
-            <Link to="/" className="nav-item nav-link font-weight-bold text-large align-middle">The Super Blog</Link>
-            <Link to="/signin" className="nav-item nav-link text-secondary">
+            <Link to="/social-app-yhjust16/" className="nav-item nav-link font-weight-bold text-large align-middle">The Super Blog</Link>
+            <Link to="/social-app-yhjust16/signin/" className="nav-item nav-link text-secondary">
               {this.props.signedin ? (
                 <span>My account</span>
               ) : (
@@ -64,8 +64,8 @@ class App extends Component {
 
 
         <main className="main-content mt-5 pt-5 pb-5 mb-5 container text-center">
-          <Route exact path="/" component={Home} />
-          <Route exact path="/signin" component={Signin} />
+          <Route exact path="/social-app-yhjust16/" component={Home} />
+          <Route exact path="/social-app-yhjust16/signin/" component={Signin} />
         </main>
         <footer className="main-footer p-2 text-small text-center fixed-bottom bg-white zindex-sticky">
           The Super Blog YHJUST16
