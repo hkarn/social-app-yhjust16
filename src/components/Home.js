@@ -54,7 +54,7 @@ class Home extends Component {
         {this.props.signedin ? (
           <NewPost />
         ) : (
-          <NotSignedInNewPost />
+          <NotSignedInNewPost homeFolder={this.props.homeFolder}/>
         )
         }
 

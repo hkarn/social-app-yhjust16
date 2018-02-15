@@ -10,7 +10,7 @@ class NotSignedInNewPost extends Component {
     return (
       <div>
         <h5>Create new post</h5>
-        <Link to="/signin">
+        <Link to={'/' + this.props.homeFolder + '/signin/'}>
           <button className="btn btn-dark bg-primary">You need to sign in to create a new post</button>
         </Link>
       </div>
