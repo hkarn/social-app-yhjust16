@@ -2,11 +2,11 @@ Social App
 =======
 
 ## YHJUST16 Avancerad Webbapplikationsutveckling 2
-## Slutuppgift
-## Håkan Kindström Arnoldson
-## Lernia JavaScriptutevcklare YH
+### Slutuppgift
+### Håkan Kindström Arnoldson
+### Lernia JavaScriptutevcklare YH
 
-## [Live on GH-Pages](https://hkarn.github.io/social-app-yhjust16/)
+### [Live on GH-Pages](https://hkarn.github.io/social-app-yhjust16/)
 
 React app made with react-create-app and using Firebase for backend. Se package.json for used modules.
 
